@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Steven (Shang) Shi</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ── Navbar ── -->
+<nav class="navbar">
+  <a href="index.html" class="nav-logo">Steven Shi</a>
+  <div class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="Shang (Steven) Shi Resume 2025 - Technical.pdf" target="_blank" class="nav-resume-btn">Resume ↓</a></li>
+    <li><a href="chat.html">Chat</a></li>
+  </ul>
+</nav>
+
+<main>
+  <div class="page-hero">
+    <span class="section-label">My Work</span>
+    <h1>Projects</h1>
+    <p>Click any project to expand and explore details, images, and demos.</p>
+  </div>
+
+  <div class="projects-grid">
+
+    <!-- ── Project 1: Hand Gesture ── -->
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-card-left">
+          <div class="project-card-title">Hand Gesture Recognition for Vehicle Controls</div>
+          <div class="project-card-summary">Intuitive hand gesture system for in-vehicle controls to reduce distracted driving.</div>
+          <div class="project-tags">
+            <span class="project-tag">Python</span>
+            <span class="project-tag">MediaPipe</span>
+            <span class="project-tag">Computer Vision</span>
+          </div>
+        </div>
+        <div class="project-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+
+          <div class="project-section">
+            <div class="project-section-title">Background</div>
+            <p>Each year in the US, over 400,000 people get injured and 3,000 people die due to distracted driving. Our team designed an intuitive hand gesture recognition system for internal vehicle controls to reduce distractions on the road. My main contributions were creating the gestures for mode changing and combining all functions into a harmonious system.</p>
+          </div>
+
+          <div class="project-section">
+            <img src="Images/Hand Gesture Recognition/hand gesture.jpg" alt="Hand Gesture System" class="project-img" />
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">How It Works</div>
+            <p>The system uses MediaPipe's hand tracking library to obtain X and Y coordinates through a regular camera, building a library of recognized hand gestures. The design goal was an intuitive gesture set requiring minimal memorization.</p>
+            <img src="Images/Hand Gesture Recognition/mediapipe.png" alt="MediaPipe hand tracking" class="project-img" />
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">System Overview</div>
+            <img src="Images/Hand Gesture Recognition/flowchart.png" alt="System flowchart" class="project-img" />
+            <ul>
+              <li><strong>Media Mode</strong> (base) — pause/play music, change songs, control volume with intuitive gestures.</li>
+              <li><strong>Climate Mode</strong> — activated by a "1" gesture; control temperature. Auto-returns to Media Mode after 5s of inactivity.</li>
+              <li><strong>Call Mode</strong> — activated when a call comes in; accept or decline with a gesture.</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Demo Videos</div>
+            <div class="video-grid">
+              <div>
+                <div class="project-img-caption" style="text-align:left;margin-bottom:4px;">1. Changing Song Tracks</div>
+                <div class="video-wrap"><iframe src="https://www.youtube.com/embed/25ZRmGECGv0" allowfullscreen loading="lazy"></iframe></div>
+              </div>
+              <div>
+                <div class="project-img-caption" style="text-align:left;margin-bottom:4px;">2. Play / Pause Music</div>
+                <div class="video-wrap"><iframe src="https://www.youtube.com/embed/6ujDP7liQXU" allowfullscreen loading="lazy"></iframe></div>
+              </div>
+              <div>
+                <div class="project-img-caption" style="text-align:left;margin-bottom:4px;">3. Switching Modes</div>
+                <div class="video-wrap"><iframe src="https://www.youtube.com/embed/ORkFUQ6IRoQ" allowfullscreen loading="lazy"></iframe></div>
+              </div>
+              <div>
+                <div class="project-img-caption" style="text-align:left;margin-bottom:4px;">4. Volume / Temperature Control</div>
+                <div class="video-wrap"><iframe src="https://www.youtube.com/embed/r86kAlIkjP4" allowfullscreen loading="lazy"></iframe></div>
+              </div>
+            </div>
+            <div style="margin-top:1rem;">
+              <div class="project-img-caption" style="text-align:left;margin-bottom:4px;">5. Accept / Reject a Phone Call</div>
+              <div class="video-wrap-full"><iframe src="https://www.youtube.com/embed/cvoTp8JhnIo" allowfullscreen loading="lazy"></iframe></div>
+            </div>
+          </div>
+
+          <a href="https://github.com/shangshi123/Hand-Gesture-Detection" target="_blank" class="project-github-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Project 2: Dense Video Captioning ── -->
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-card-left">
+          <div class="project-card-title">Dense Video Captioning with Semantic Alignment</div>
+          <div class="project-card-summary">Enhanced PDVC pipeline with semantic alignment achieving 8% improvement across all metrics.</div>
+          <div class="project-tags">
+            <span class="project-tag">PyTorch</span>
+            <span class="project-tag">CLIP</span>
+            <span class="project-tag">Transformers</span>
+            <span class="project-tag">Deep Learning</span>
+          </div>
+        </div>
+        <div class="project-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+
+          <div class="project-section">
+            <div class="project-section-title">Background</div>
+            <p>Dense video captioning captures and captions different events occurring in a video — with huge implications for video surveillance, autonomous driving, and aiding those with visual impairments. Our team of 4 Masters students investigated whether semantically aligning visual and caption features can improve overall performance. My key contributions were developing the tuner architectures and integrating the tuner with the existing PDVC framework.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Baseline: PDVC Framework</div>
+            <img src="Images/Dense Video Captioning/PDVC.jpg" alt="PDVC overview" class="project-img" />
+            <p class="project-img-caption">Overview of the baseline PDVC framework</p>
+            <p>Videos are passed through a pretrained feature extractor → deformable transformer encoder-decoder capturing inter-frame and inter-event interactions → parallel localization head (MLP) and captioning head (LSTM) → event counter.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Semantic Alignment Method</div>
+            <p>CLIP's frozen text encoder creates caption embeddings. Our Tuner model processes video features, which are matched in dimension and compared against caption embeddings via cosine similarity loss.</p>
+            <img src="Images/Dense Video Captioning/Tuner1.png" alt="Tuner architecture training" class="project-img" />
+            <img src="Images/Dense Video Captioning/modified pdvc.png" alt="Modified PDVC with tuner" class="project-img" />
+            <p>The trained tuner is frozen and inserted before the transformer encoder to align visual features with required captions.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Results</div>
+            <img src="Images/Dense Video Captioning/Dense Video Captioning Results Table.png" alt="Results table" class="project-img" />
+            <p>Several tuner architectures surpassed the baseline model. The Conv1 architecture surpassed baseline PDVC in <em>all</em> metrics (BLEU4, METEOR, CIDEr, SODA_c), producing more correct words and more coherent captions.</p>
+          </div>
+
+          <a href="https://github.com/ologandavid/DenseVideoCaptioning" target="_blank" class="project-github-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+            View on GitHub
+          </a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Project 3: Comic Generation ── -->
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-card-left">
+          <div class="project-card-title">Few-Shot Fine-Tuning for Comic Generation Pipeline</div>
+          <div class="project-card-summary">Text-to-comic pipeline using LLaMA-2 + Stable Diffusion with few-shot style transfer.</div>
+          <div class="project-tags">
+            <span class="project-tag">Stable Diffusion</span>
+            <span class="project-tag">ControlNet</span>
+            <span class="project-tag">DreamBooth</span>
+            <span class="project-tag">LLaMA-2</span>
+          </div>
+        </div>
+        <div class="project-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+
+          <div class="project-section">
+            <div class="project-section-title">Background</div>
+            <p>A novel approach to comic generation transforming text prompts into visually expressive comic illustrations. The project explores stable diffusion models and their synergy with large language models, addressing challenges in style consistency and enabling style changes within comics.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Full Pipeline</div>
+            <img src="Images/Comic Panel Generation Pipeline/full_pipeline.png" alt="Full pipeline" class="project-img" />
+            <p>LLaMA-2 handles story and prompt generation → Stable Diffusion synthesizes images → style transfer ensures visual coherence across panels.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Two-Stage Diffusion Pipeline</div>
+            <img src="Images/Comic Panel Generation Pipeline/2StageDiffusionPipeline.png" alt="Two-stage pipeline" class="project-img" />
+            <ul>
+              <li><strong>Stage 1:</strong> Generate a realistic image from the text prompt.</li>
+              <li>Apply Canny edge detection to extract structural outlines from the realistic image.</li>
+              <li><strong>Stage 2:</strong> Feed edge maps into a ControlNet-guided diffusion model fine-tuned on comic style — applying stylistic transfer while preserving composition and structure.</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Style Consistency &amp; Fine-Tuning</div>
+            <p>Feature-based style loss using Gram matrices from VGG19 feature maps automatically selects the best stylistic match from each generated batch. DreamBooth fine-tuned on ~12 reference images. Optimal settings: guidance scale 7.5 + 60 inference steps.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Output Comparison</div>
+            <img src="Images/Comic Panel Generation Pipeline/txt2img_grid.png" alt="Stage 1 realistic output" class="project-img" />
+            <p class="project-img-caption">Stage 1: Realistic image generation from text prompt</p>
+            <img src="Images/Comic Panel Generation Pipeline/img2img_grid_best.png" alt="Best output — 60 inference steps" class="project-img" />
+            <p class="project-img-caption">Best output — 60 inference steps (guidance scale 7.5)</p>
+            <img src="Images/Comic Panel Generation Pipeline/img2img_grid_worst.png" alt="Suboptimal output — 20 inference steps" class="project-img" />
+            <p class="project-img-caption">Comparison — 20 inference steps (more noise, less coherent style)</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Project 4: Maze Robot ── -->
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-card-left">
+          <div class="project-card-title">Maze Navigation Robot</div>
+          <div class="project-card-summary">Autonomous robot that traverses a maze, localizes itself, picks up and delivers a block.</div>
+          <div class="project-tags">
+            <span class="project-tag">Arduino</span>
+            <span class="project-tag">C++</span>
+            <span class="project-tag">Ultrasonic Sensors</span>
+            <span class="project-tag">SolidWorks</span>
+          </div>
+        </div>
+        <div class="project-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+
+          <div class="project-section">
+            <div class="project-section-title">Background</div>
+            <p>A 4-person team project to design and build a robot that can traverse through a maze, localize itself, pick up a block, and drop it at a desired location. My main contributions were programming the obstacle avoidance and localization algorithms on the Arduino Uno and Mega, and designing the rack-and-pinion gripper lift mechanism.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">System Overview</div>
+            <img src="Images/Maze Navigation Robot/robot_overall_algo.png" alt="Robot algorithm flowchart" class="project-img" />
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Mechanical Design</div>
+            <p>Full 3D assembly designed in SolidWorks. A rack-and-pinion mechanism was chosen for the gripper lift for its simplicity and reliable vertical motion.</p>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.75rem;">
+              <img src="Images/Maze Navigation Robot/unnamed (3).png" alt="SolidWorks assembly" class="project-img" style="margin:0;" />
+              <img src="Images/Maze Navigation Robot/rack and pinion.png" alt="Rack and pinion mechanism" class="project-img" style="margin:0;" />
+            </div>
+            <img src="Images/Maze Navigation Robot/Final Product.jpg" alt="Final robot" class="project-img" />
+            <p class="project-img-caption">Final assembled robot</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Electronics &amp; Sensors</div>
+            <img src="Images/Maze Navigation Robot/sensor placement.png" alt="Sensor placement diagram" class="project-img" />
+            <ul>
+              <li><strong>Arduino Mega</strong> — high-level controller: processes sensor signals and makes decisions.</li>
+              <li><strong>Arduino Uno</strong> — low-level motor controller.</li>
+              <li>4 DC motors (wheels), 2 servo motors (gripper + lift).</li>
+              <li>7 ultrasonic sensors (S0–S6) for obstacle avoidance and localization.</li>
+              <li>1 IR sensor (S7) for block detection.</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Navigation Algorithm</div>
+            <img src="Images/Maze Navigation Robot/mapLocalize.png" alt="Maze localization map" class="project-img" />
+            <ul>
+              <li>Right wall following to navigate to one of four unique localization positions.</li>
+              <li>Unique positions identified by sensor readings (one block in front, two blocks behind).</li>
+              <li>Small-step movement with ultrasonic realignment after each step — solves omni-wheel slippage issue and ensures robust straight-line driving.</li>
+            </ul>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Full Demo</div>
+            <div class="video-wrap-full">
+              <iframe src="https://www.youtube.com/embed/38hogvrgdWk" allowfullscreen loading="lazy"></iframe>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects-grid -->
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-links">
+    <a href="mailto:stevenshi1126@gmail.com">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      stevenshi1126@gmail.com
+    </a>
+    <a href="https://www.linkedin.com/in/steven-shi-272b2b168/" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+    <a href="https://github.com/ShiSteven99" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+      GitHub
+    </a>
+  </div>
+  <div class="footer-copy">&copy; 2025 Steven (Shang) Shi. All rights reserved.</div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
