@@ -135,15 +135,15 @@ main { padding-top: var(--nav-height); }
   padding: 0;
 }
 .hero-split-photo {
-  flex: 0 0 58%;
+  flex: 0 0 42%;
   min-height: 100%;
   overflow: hidden;
   background: linear-gradient(160deg, var(--lavender-light) 0%, var(--sky-light) 100%);
   display: flex; align-items: center; justify-content: center;
-  padding: 2rem;
+  padding: 1.25rem;
 }
 .hero-split-photo img {
-  height: 88%;
+  height: 96%;
   width: auto;
   max-width: 100%;
   object-fit: contain;
