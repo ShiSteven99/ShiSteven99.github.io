@@ -126,7 +126,8 @@ main { padding-top: var(--nav-height); }
 
 /* ─── Hero ───────────────────────────────────────────────────── */
 .hero {
-  min-height: calc(100vh - var(--nav-height));
+  height: 65vh;
+  min-height: 480px;
   display: flex; align-items: stretch;
   position: relative; overflow: hidden;
 }
@@ -473,8 +474,8 @@ footer {
   margin-top: 1.5rem;
 }
 .edu-photo-wrap {
-  flex: 0 0 340px;
-  height: 255px;
+  flex: 0 0 510px;
+  height: 383px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
