@@ -478,16 +478,17 @@ footer {
 
 /* ─── Interests Photo Grid ───────────────────────────────────── */
 .interests-photo-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) repeat(2, 1fr);
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 1rem;
 }
 .interest-photo-card {
+  flex: 0 0 170px;
+  height: 220px;
   position: relative;
   border-radius: var(--radius);
   overflow: hidden;
-  aspect-ratio: 3/4;
   background-size: cover;
   background-position: center;
   cursor: default;
@@ -496,25 +497,26 @@ footer {
 .interest-photo-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-soft); }
 .interest-photo-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(26,22,40,0.72) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(26,22,40,0.75) 0%, transparent 55%);
 }
 .interest-photo-label {
   position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 1rem;
+  padding: 0.85rem;
 }
 .interest-photo-label .interest-name {
-  font-size: 0.95rem; font-weight: 600; color: white;
+  font-size: 0.9rem; font-weight: 600; color: white;
 }
 .interest-photo-label .interest-sub {
-  font-size: 0.75rem; color: rgba(255,255,255,0.75); margin-top: 0.15rem;
+  font-size: 0.72rem; color: rgba(255,255,255,0.75); margin-top: 0.15rem;
 }
 .interest-item-emoji {
+  flex: 0 0 170px;
+  height: 220px;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  aspect-ratio: 3/4;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .interest-item-emoji:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
@@ -535,6 +537,5 @@ footer {
   .hero { min-height: 80vh; }
   .hero-with-bg { background-attachment: scroll; }
   .section { padding: 4rem 5%; }
-  .interests-photo-grid { grid-template-columns: repeat(3, 1fr); }
-  .interest-photo-card, .interest-item-emoji { aspect-ratio: 1/1; }
+  .interest-photo-card, .interest-item-emoji { flex: 0 0 140px; height: 185px; }
 }
