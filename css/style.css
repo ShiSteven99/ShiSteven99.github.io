@@ -126,7 +126,7 @@ main { padding-top: var(--nav-height); }
 
 /* ─── Hero ───────────────────────────────────────────────────── */
 .hero {
-  height: 65vh;
+  height: 75vh;
   min-height: 480px;
   display: flex; align-items: stretch;
   position: relative; overflow: hidden;
@@ -472,11 +472,18 @@ footer {
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* ─── Education Photos ───────────────────────────────────────── */
+.edu-grid {
+  max-width: calc(510px * 2 + 1rem);
+  margin: 0 auto;
+}
 .edu-photos {
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
+  max-width: calc(510px * 2 + 1rem);
+  margin-left: auto;
+  margin-right: auto;
 }
 .edu-photo-wrap {
   flex: 0 0 510px;
