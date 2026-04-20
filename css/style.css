@@ -126,8 +126,8 @@ main { padding-top: var(--nav-height); }
 
 /* ─── Hero ───────────────────────────────────────────────────── */
 .hero {
-  height: 75vh;
-  min-height: 480px;
+  height: 85vh;
+  min-height: 560px;
   display: flex; align-items: stretch;
   position: relative; overflow: hidden;
 }
@@ -135,7 +135,7 @@ main { padding-top: var(--nav-height); }
   padding: 0;
 }
 .hero-split-photo {
-  flex: 0 0 48%;
+  flex: 0 0 58%;
   min-height: 100%;
   overflow: hidden;
   background: linear-gradient(160deg, var(--lavender-light) 0%, var(--sky-light) 100%);
@@ -472,22 +472,14 @@ footer {
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* ─── Education Photos ───────────────────────────────────────── */
-.edu-grid {
-  max-width: calc(510px * 2 + 1rem);
-  margin: 0 auto;
-}
 .edu-photos {
   display: flex;
-  justify-content: center;
   gap: 1rem;
   margin-top: 1.5rem;
-  max-width: calc(510px * 2 + 1rem);
-  margin-left: auto;
-  margin-right: auto;
 }
 .edu-photo-wrap {
-  flex: 0 0 510px;
-  height: 383px;
+  flex: 1;
+  height: 360px;
   border-radius: var(--radius);
   overflow: hidden;
   border: 1px solid var(--border);
