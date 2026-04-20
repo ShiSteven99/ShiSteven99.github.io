@@ -353,7 +353,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  max-width: 900px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 3rem 5% 5rem;
 }
