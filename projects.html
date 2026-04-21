@@ -36,7 +36,7 @@
       <div class="project-card-header">
         <div class="project-card-left">
           <div class="project-card-title">Hand Gesture Recognition for Vehicle Controls</div>
-          <div class="project-card-summary">Intuitive hand gesture system for in-vehicle controls to reduce distracted driving.</div>
+          <div class="project-card-summary">Intuitive hand gesture recognition system for in-vehicle controls to reduce distracted driving.</div>
           <div class="project-tags">
             <span class="project-tag">Python</span>
             <span class="project-tag">MediaPipe</span>
@@ -52,7 +52,7 @@
 
           <div class="project-section">
             <div class="project-section-title">Background</div>
-            <p>Each year in the US, over 400,000 people get injured and 3,000 people die due to distracted driving. Our team designed an intuitive hand gesture recognition system for internal vehicle controls to reduce distractions on the road. My main contributions were creating the gestures for mode changing and combining all functions into a harmonious system.</p>
+            <p>Each year in the US, over 400,000 people get injured and 3,000 people die due to distracted driving. Our team designed an intuitive hand gesture recognition system for internal vehicle controls to reduce distractions on the road. My main contributions were implementing gesture recognition for mode transitions and unifying multiple control functions into a cohesive system architecture allowing for an intuitive user experience.</p>
           </div>
 
           <div class="project-section">
@@ -61,13 +61,14 @@
 
           <div class="project-section">
             <div class="project-section-title">How It Works</div>
-            <p>The system uses MediaPipe's hand tracking library to obtain X and Y coordinates through a regular camera, building a library of recognized hand gestures. The design goal was an intuitive gesture set requiring minimal memorization.</p>
+            <p>The system uses MediaPipe's hand tracking library to obtain X and Y coordinates through a regular camera, building a library of recognized hand gestures. The design goal was an intuitive gesture set requiring minimal memorization. Only X and Y were used here as we used a simple computer 2D camera for the project which didn't provide a depth map.</p>
             <img src="Images/Hand Gesture Recognition/mediapipe.png" alt="MediaPipe hand tracking" class="project-img" />
           </div>
 
           <div class="project-section">
             <div class="project-section-title">System Overview</div>
             <img src="Images/Hand Gesture Recognition/flowchart.png" alt="System flowchart" class="project-img" />
+            <p> We prioritized intuitive gesture design and ease of use, reusing gestures across modes where possible to reduce cognitive load—for example, using the same gesture to control both temperature and volume.</p> 
             <ul>
               <li><strong>Media Mode</strong> (base) — pause/play music, change songs, control volume with intuitive gestures.</li>
               <li><strong>Climate Mode</strong> — activated by a "1" gesture; control temperature. Auto-returns to Media Mode after 5s of inactivity.</li>
@@ -132,28 +133,29 @@
 
           <div class="project-section">
             <div class="project-section-title">Background</div>
-            <p>Dense video captioning captures and captions different events occurring in a video — with huge implications for video surveillance, autonomous driving, and aiding those with visual impairments. Our team of 4 Masters students investigated whether semantically aligning visual and caption features can improve overall performance. My key contributions were developing the tuner architectures and integrating the tuner with the existing PDVC framework.</p>
+            <p>Dense video captioning captures and captions different events occurring in a video — with huge implications for video surveillance, autonomous driving, and aiding those with visual impairments. Our team of 4 investigated whether semantically aligning visual and caption features can improve overall performance. My key contributions were developing the Tuner (alignment) architectures and integrating the Tuner with the existing PDVC framework.</p>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Baseline: PDVC Framework</div>
             <img src="Images/Dense Video Captioning/PDVC.jpg" alt="PDVC overview" class="project-img" />
-            <p class="project-img-caption">Overview of the baseline PDVC framework</p>
+            <p class="project-img-caption">Overview of the baseline PDVC [1] framework</p>
             <p>Videos are passed through a pretrained feature extractor → deformable transformer encoder-decoder capturing inter-frame and inter-event interactions → parallel localization head (MLP) and captioning head (LSTM) → event counter.</p>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Semantic Alignment Method</div>
-            <p>CLIP's frozen text encoder creates caption embeddings. Our Tuner model processes video features, which are matched in dimension and compared against caption embeddings via cosine similarity loss.</p>
+            <p>CLIP's [2] frozen text encoder creates caption embeddings. Our Tuner model processes video features, which are projected into the same embedding space as caption features. We then compute a cosine similarity loss between the two, and backpropagate this loss to train the Tuner to better align video representations with their corresponding captions.</p>
             <img src="Images/Dense Video Captioning/Tuner1.png" alt="Tuner architecture training" class="project-img" />
+            <p>The trained tuner is frozen and inserted before the transformer encoder to align visual features with required captions. This pipline is called the modified PDVC.</p>
             <img src="Images/Dense Video Captioning/modified pdvc.png" alt="Modified PDVC with tuner" class="project-img" />
-            <p>The trained tuner is frozen and inserted before the transformer encoder to align visual features with required captions.</p>
+   
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Results</div>
             <img src="Images/Dense Video Captioning/Dense Video Captioning Results Table.png" alt="Results table" class="project-img" />
-            <p>Several tuner architectures surpassed the baseline model. The Conv1 architecture surpassed baseline PDVC in <em>all</em> metrics (BLEU4, METEOR, CIDEr, SODA_c), producing more correct words and more coherent captions.</p>
+            <p>After training the modified PDVC with the YouCook2 dataset, results were very positive. We found several Tuner architectures to surpass the baseline model. The Conv1 architecture surpassed baseline PDVC in <em>all</em> metrics (BLEU4, METEOR, CIDEr, SODA_c), producing more correct words and more coherent captions. </p>
           </div>
 
           <a href="https://github.com/ologandavid/DenseVideoCaptioning" target="_blank" class="project-github-link">
