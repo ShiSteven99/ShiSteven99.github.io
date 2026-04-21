@@ -202,19 +202,18 @@
           <div class="project-section">
             <div class="project-section-title">Two-Stage Diffusion Pipeline</div>
             <img src="Images/Comic Panel Generation Pipeline/2StageDiffusionPipeline.png" alt="Two-stage pipeline" class="project-img" />
-            <p> I was responsible for the diffusion pipeline which can be split into two main steps: </p>
+            <p> I was responsible for the diffusion pipeline which can be split into three main steps: </p>
             <br>
             <ul>
               <li><strong>Stage 1:</strong> Generate a realistic images from the text prompt.</li>
               <li><strong>Stage 2: </strong>Apply Canny edge detection to extract structural outlines from the realistic images.</li>
-              <li><strong>Stage 3:</strong> Feed edge maps into a ControlNet-guided diffusion model fine-tuned on comic style — applying stylistic transfer while preserving composition and structure.</li>
               <li><strong>Stage 3:</strong> Feed edge maps into a ControlNet-guided diffusion model few shot fine-tuned on comic styles using DreamBooth — applying stylistic transfer while preserving composition and structure.</li>
             </ul>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Style Consistency &amp; Fine-Tuning</div>
-            <p>Using the feature-based style loss calculated via Gram matrices from VGG19 feature maps, we are able to select the best stylistic match from each generated batch. DreamBooth was few shot fine-tuned on ~12 reference images. The best results came from settings of: guidance scale 7.5 + 60 inference steps.</p>
+            <p>Using the feature-based style loss calculated via Gram matrices from VGG19 feature maps, we are able to select the best stylistic match from each generated batch. DreamBooth was few shot fine-tuned on ~12 reference general comic style images. The best results came from settings of: guidance scale 7.5 + 60 inference steps.</p>
           </div>
 
           <div class="project-section">
@@ -239,8 +238,8 @@
           <div class="project-card-summary">Autonomous robot that traverses a maze, localizes itself, picks up and delivers a block.</div>
           <div class="project-tags">
             <span class="project-tag">Arduino</span>
-            <span class="project-tag">C++</span>
             <span class="project-tag">Ultrasonic Sensors</span>
+            <span class="project-tag">Mechatronic Systems</span>
             <span class="project-tag">SolidWorks</span>
           </div>
         </div>
@@ -253,17 +252,28 @@
 
           <div class="project-section">
             <div class="project-section-title">Background</div>
-            <p>A 4-person team project to design and build a robot that can traverse through a maze, localize itself, pick up a block, and drop it at a desired location. My main contributions were programming the obstacle avoidance and localization algorithms on the Arduino Uno and Mega, and designing the rack-and-pinion gripper lift mechanism.</p>
+            <p>The objective was to build a robot that can traverse through a maze, localize itself, pick up a block, and drop it at a desired location. My main contributions were programming the obstacle avoidance and localization algorithms on the Arduino Uno and Mega, and designing the rack-and-pinion gripper lift mechanism.</p>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">System Overview</div>
+            <p> The project is split into four main tasks:</p>
+            <br>
+            <ul>
+              <li><strong>Stage 1:</strong> Robot is dropped in the maze at a random location and needs to localize itself</li>
+              <li><strong>Stage 2: </strong>Once the robot localizes itself, it needs to traverse to the designated block location and find the block</li>
+              <li><strong>Stage 3:</strong> Once the block is located, the robot needs to traverse to it and grasp the block</li>
+              <li><strong>Stage 4:</strong> Finally, with the block collected, the robot needs to drop it off at designated location</li>
+            </ul>
+            <br>
+            <p> Through out these 4 stages, the robot needs to be constantly performing obstacle avoidance to not run into walls.</p>  
             <img src="Images/Maze Navigation Robot/robot_overall_algo.png" alt="Robot algorithm flowchart" class="project-img" />
+
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Mechanical Design</div>
-            <p>Full 3D assembly designed in SolidWorks. A rack-and-pinion mechanism was chosen for the gripper lift for its simplicity and reliable vertical motion.</p>
+            <p>Full 3D assembly designed in SolidWorks. A rack-and-pinion mechanism was chosen for the gripper lift for its simplicity and reliable vertical motion. Omni wheels were used to allow for translation motion without turning the vehicle. However this proved to cause many issues due to the poor traction of the wheels.</p>
             <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.75rem;">
               <img src="Images/Maze Navigation Robot/unnamed (3).png" alt="SolidWorks assembly" class="project-img" style="margin:0;" />
               <img src="Images/Maze Navigation Robot/rack and pinion.png" alt="Rack and pinion mechanism" class="project-img" style="margin:0;" />
@@ -275,6 +285,8 @@
           <div class="project-section">
             <div class="project-section-title">Electronics &amp; Sensors</div>
             <img src="Images/Maze Navigation Robot/sensor placement.png" alt="Sensor placement diagram" class="project-img" />
+            <p>Electronics used in this project include: </p>
+            <br>
             <ul>
               <li><strong>Arduino Mega</strong> — high-level controller: processes sensor signals and makes decisions.</li>
               <li><strong>Arduino Uno</strong> — low-level motor controller.</li>
@@ -288,9 +300,12 @@
             <div class="project-section-title">Navigation Algorithm</div>
             <img src="Images/Maze Navigation Robot/mapLocalize.png" alt="Maze localization map" class="project-img" />
             <ul>
-              <li>Right wall following to navigate to one of four unique localization positions.</li>
-              <li>Unique positions identified by sensor readings (one block in front, two blocks behind).</li>
-              <li>Small-step movement with ultrasonic realignment after each step — solves omni-wheel slippage issue and ensures robust straight-line driving.</li>
+              <li>Small-step movement with ultrasonic realignment after each step — solves the omni-wheel slippage issue and ensures robust straight-line driving. Two ultrasonic sensors on the left and right sides of the robot allows for angular alignment with respect to to wall.</li>
+              <li>A right wall following algorithm is used to randomly traverse the maze during localization. The robot will traverse with this until a unique position is identified.</li>
+              <li>Unique positions are identified by sensor readings. There are exactly 4 locations on the map where the robot will see 2 blocks in front and 1 block at the back.</li>
+              <li>For block drop off, there are 4 possible locations, with 3 of them (2-4) as labelled in the below diagram being achievable through right wall following upon leaving pick up zone. Drop off location 1 is programmed in as a separate unique case.</li>
+              <img src="Images/Maze Navigation Robot/dropoffmap.png" alt="Drop off locations" class="project-img" />
+
             </ul>
           </div>
 
