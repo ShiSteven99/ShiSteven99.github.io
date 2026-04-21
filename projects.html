@@ -190,28 +190,31 @@
 
           <div class="project-section">
             <div class="project-section-title">Background</div>
-            <p>A novel approach to comic generation transforming text prompts into visually expressive comic illustrations. The project explores stable diffusion models and their synergy with large language models, addressing challenges in style consistency and enabling style changes within comics.</p>
+            <p>We explored a novel approach to comic generation by transforming text prompts into visually expressive comic panels using diffusion models. A pipeline capable of generating comics in specified styles through few-shot fine tuning while maintaining content relevance was developed. Key challenges such as style consistency and controlled style variation were addressed through the implementation of a similarity metric for content preservation. The result is an end-to-end framework that produces coherent, stylistically consistent comic panels from text.</p>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Full Pipeline</div>
             <img src="Images/Comic Panel Generation Pipeline/full_pipeline.png" alt="Full pipeline" class="project-img" />
-            <p>LLaMA-2 handles story and prompt generation → Stable Diffusion synthesizes images → style transfer ensures visual coherence across panels.</p>
+            <p>LLaMA-2 handles story and prompt generation → A Stable Diffusion based pipeline to generate comic panes → ControlNet with Canny edge maps to transfer styles accross panels.</p>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Two-Stage Diffusion Pipeline</div>
             <img src="Images/Comic Panel Generation Pipeline/2StageDiffusionPipeline.png" alt="Two-stage pipeline" class="project-img" />
+            <p> I was responsible for the diffusion pipeline which can be split into two main steps: </p>
+            <br>
             <ul>
-              <li><strong>Stage 1:</strong> Generate a realistic image from the text prompt.</li>
-              <li>Apply Canny edge detection to extract structural outlines from the realistic image.</li>
-              <li><strong>Stage 2:</strong> Feed edge maps into a ControlNet-guided diffusion model fine-tuned on comic style — applying stylistic transfer while preserving composition and structure.</li>
+              <li><strong>Stage 1:</strong> Generate a realistic images from the text prompt.</li>
+              <li><strong>Stage 2: </strong>Apply Canny edge detection to extract structural outlines from the realistic images.</li>
+              <li><strong>Stage 3:</strong> Feed edge maps into a ControlNet-guided diffusion model fine-tuned on comic style — applying stylistic transfer while preserving composition and structure.</li>
+              <li><strong>Stage 3:</strong> Feed edge maps into a ControlNet-guided diffusion model few shot fine-tuned on comic styles using DreamBooth — applying stylistic transfer while preserving composition and structure.</li>
             </ul>
           </div>
 
           <div class="project-section">
             <div class="project-section-title">Style Consistency &amp; Fine-Tuning</div>
-            <p>Feature-based style loss using Gram matrices from VGG19 feature maps automatically selects the best stylistic match from each generated batch. DreamBooth fine-tuned on ~12 reference images. Optimal settings: guidance scale 7.5 + 60 inference steps.</p>
+            <p>Using the feature-based style loss calculated via Gram matrices from VGG19 feature maps, we are able to select the best stylistic match from each generated batch. DreamBooth was few shot fine-tuned on ~12 reference images. The best results came from settings of: guidance scale 7.5 + 60 inference steps.</p>
           </div>
 
           <div class="project-section">
