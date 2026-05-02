@@ -1,0 +1,29 @@
+My experiences at AUBO Robotics USA:
+
+My initial role was a Robotics Engineer. So I learned the different ways to program our robot for a variety of differnt projects
+Some of the projects I have been involved in include:
+    - Vision guided bin picking
+    - Palletizing
+    - Screwdriving
+    - Machine tending
+    - Quality inspection
+    - Welding
+The main focus through all of these applications was identifying the customer's bottle neck and seeing where a robot can be placed to improve overall through put and help the customer build a ROI case. One of the key bottle necks for customers was the staff issues. For example in welding, it is so difficult to find qualified welders. So companies are stuck in place where they don't have the resource to take on bigger jobs and expand. Therefore when adopting a reliable cobot welding cell, they can free up their best welders from the repetitive jobs and focus on the high value ones.
+During this process, I became familiar with interfacing with different custom and off the shelf EOAT. Communicating with various devices through digital IOs, Modbus TCP/RTU, Ethernet IP, Profinet, and TCP/IP. For example, with Allen Bradley PLCs we used Ethernet IP and Profinet for Siemans. For a lot of vision applications, I established communication through TCP/IP.
+
+During this process, I also trained new oem partners, distributors, integrators and customers to ensure they are well equiped to be successful with our robot.
+
+After one year, I became the Applications Lead and began transitioning into a Business Development role, where I took ownership of evaluating and qualifying incoming automation opportunities. Rather than treating all projects equally, I focused on identifying applications that would deliver the highest impact for the customer while also maintaining a high probability of technical and operational success.
+
+This involved assessing factors such as feasibility, ROI potential, and integration complexity. I worked closely with both internal engineering teams and external partners to align on realistic project scopes and ensure that proposed solutions could be successfully deployed within customer constraints.
+
+A key priority in this role was ensuring that a customer’s first automation project was successful. In many cases, the initial deployment sets the tone for their broader automation strategy—if the first project underperforms or fails, it can significantly delay or halt further adoption. By prioritizing well-scoped, high-impact opportunities, I helped de-risk early-stage automation efforts and build customer confidence, ultimately supporting long-term expansion and repeat business.
+
+For business development, I developed relationships with distributors, system integrators, and OEM partners to extend our market reach and create new revenue channels. Not only supporting them from a business standpoint but also technically by providing sales+application specific training. The stategies changed as I got a better understanding on the most successful channels an started concentrating efforts on those with the strongest conversion potential.
+
+To further improve outreach and lead generation, I built and managed a small marketing team, composed of interns, focused on executing targeted campaigns in these high-performing channels. I introduced AI-driven tools and automation workflows (including Make, n8n, and the usage of various LLMs like Claude and Gemini) to streamline lead sourcing, lead outreach and lead enrichment. In addition, we leveraged AI for content generation—producing tailored messaging, campaign materials, and short form content for various social media channels. This allowed the team to operate with significantly higher efficiency, scale targeted engagement, and consistently generate more qualified opportunities for the sales pipeline.
+
+Through out my time at AUBO, we also exhibited at various trade shows like Automate Show, Fabtech, PackExpo, CES and various regional shows as well. We also went on road shows to various customer/partner locations with our robots for demonstration.
+
+
+
