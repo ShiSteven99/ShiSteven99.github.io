@@ -143,7 +143,7 @@ main { padding-top: var(--nav-height); }
   padding: 1.25rem;
 }
 .hero-split-photo img {
-  height: 96%;
+  height: 77%;
   width: auto;
   max-width: 100%;
   object-fit: contain;
