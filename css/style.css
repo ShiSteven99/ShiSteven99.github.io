@@ -102,8 +102,8 @@ main { padding-top: var(--nav-height); }
 
 /* ─── Section Layout ─────────────────────────────────────────── */
 .section {
-  padding: 6rem 5%;
-  max-width: 1240px;
+  padding: 6rem 4%;
+  max-width: 1360px;
   margin: 0 auto;
 }
 .section-header {
@@ -365,9 +365,9 @@ footer {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
-  max-width: 1200px;
+  max-width: 1360px;
   margin: 0 auto;
-  padding: 3rem 5% 5rem;
+  padding: 3rem 4% 5rem;
 }
 .project-card {
   border: 1px solid var(--border);
