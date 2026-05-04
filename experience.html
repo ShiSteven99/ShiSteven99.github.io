@@ -74,13 +74,13 @@
     <div class="exp-feature-row" style="align-items:start;">
       <div>
         <p style="font-size:0.95rem; color:var(--text-secondary); line-height:1.85; margin-bottom:1.4rem;">
-          A lot of the conversations I had with manufacturers started with them knowing something wasn't efficient but not quite knowing where automation fit. The bottleneck was different every time.
+          On the application engineering side, the work was focused on robot programming and ensuring reliable communication between the robot and any other equipment — PLCs, vision systems, sensors, and end-of-arm tooling (EOAT). The core idea was finding the right application for each customer to implement robotics in a way that made sense for their business. The key applications I led are vision-guided bin picking, palletizing, screwdriving, machine tending, quality inspection, and welding/plasma cutting.
         </p>
         <p style="font-size:0.95rem; color:var(--text-secondary); line-height:1.85; margin-bottom:1.4rem;">
-          For welding companies it was almost always labor — it's genuinely hard to find qualified welders, so companies end up turning down jobs they can't staff. A cobot welding cell doesn't replace welders; it frees your best ones from the repetitive joints so they can focus on the higher-value work. For machine tending, operators were spending most of their shift just loading and unloading CNC machines or presses — time that could go toward something that actually requires a person. For palletizing, it was physical strain and end-of-shift fatigue causing errors at the worst point in the line.
+          For welding, the bottleneck was almost always labor. It's genuinely hard to find qualified welders, so companies end up turning down jobs they can't staff and get stuck in place. For machine tending, operators were spending most of their shift just loading and unloading CNC machines or presses — time that could go toward something that actually requires a person, especially since most of these parts were repetitive. For palletizing, it was physical strain and end-of-shift fatigue. It's also one of the hardest roles to staff consistently given how demanding the work is.
         </p>
         <p style="font-size:0.95rem; color:var(--text-secondary); line-height:1.85; margin-bottom:1.4rem;">
-          For vision-guided bin picking, the challenge was unorganized parts — manual picking from a bin is slow and inconsistent, and vision systems let the robot handle that randomness. For quality inspection, it came down to repeatability; people get tired and miss things, and a defect that slips through has real downstream consequences. Screwdriving was similar — torque consistency is hard to maintain manually over thousands of cycles.
+          For vision-guided bin picking, this has become very popular in recent years as 3D cameras have been equipped with more powerful AI models. Previously, you had to have someone sort through a random bin of parts or stage each part in a repeatable position for the robot to work. Newer technologies have made it possible to eliminate that intermediate step in certain cases, though it's still a challenging application — especially with parts that tangle, are deformable, or are highly reflective. For quality inspection, it came down to repeatability; people get tired and miss things, and a defect that slips through has costly downstream consequences. Screwdriving was similar — torque consistency is hard to maintain manually over thousands of cycles, making it one of those extremely repetitive tasks that cobots are well-suited for, depending on the torque requirements.
         </p>
         <p style="font-size:0.95rem; color:var(--text-secondary); line-height:1.85; margin-bottom:1.75rem;">
           The engineering challenge across all of it was the same: figure out exactly what the robot needs to sense and respond to, then set up the right communication between everything — the PLC, the end-of-arm tooling, any vision system, and the robot controller itself.
@@ -96,14 +96,15 @@
         </div>
         <div class="skills-cat">Communication Protocols</div>
         <div class="skills-tags">
+          <span class="skill-tag">Cobot Programming</span>
           <span class="skill-tag">Ethernet/IP</span>
           <span class="skill-tag">Profinet</span>
+          <span class="skill-tag">LUA Scripts</span>
           <span class="skill-tag">Modbus TCP/RTU</span>
           <span class="skill-tag">TCP/IP</span>
           <span class="skill-tag">Digital I/O</span>
-          <span class="skill-tag">Allen Bradley PLC</span>
-          <span class="skill-tag">Siemens PLC</span>
-          <span class="skill-tag">Custom EOAT</span>
+          <span class="skill-tag">EOAT interfacing</span>
+          <span class="skill-tag">Quick Prototyping</span>
         </div>
       </div>
 
@@ -132,23 +133,33 @@
 
       <div class="exp-feature-row">
         <div style="display:flex; flex-direction:column; gap:0.75rem;">
-          <div class="exp-feature-photo" style="height:195px;">
+          <div class="exp-feature-photo" style="height:270px;">
             <img src="Images/AUBO/partnertraining.jpg" alt="Partner training" />
           </div>
-          <div class="exp-feature-photo" style="height:195px;">
+          <div class="exp-feature-photo" style="height:270px;">
             <img src="Images/AUBO/Customertraining.jpg" alt="Customer training" />
           </div>
         </div>
         <div>
           <div class="exp-feature-label">Distributors, Integrators &amp; OEMs</div>
-          <div class="exp-feature-heading">Making Sure Partners Could Stand on Their Own</div>
-          <p class="exp-feature-body" style="margin-bottom:1.25rem;">
-            One thing I learned pretty fast: just signing a new distributor or integrator doesn't do much on its own. If they don't fully understand the product and how to talk about it with customers, they're not going to close anything. So a big part of my role became the training side — making sure partners could not just demo the robot, but have the full conversation about where it fits and why it makes sense for that specific customer's situation.
+          <div class="exp-feature-heading">Making Sure Partners Are Well Equipped</div>
+          <p class="exp-feature-body" style="margin-bottom:1.25rem;">            
+            After about a year, I started leading the applications side as well as stepping into business development. I focused on expanding our market reach by building and strengthening relationships across the automation ecosystem, including distributors, system integrators, OEM partners, and complementary brands.
+          </p>
+          <p class="exp-feature-body" style="margin-bottom:1.25rem;">            
+            To ensure a successful partnership, no matter the type, one of the most important things is providing them with the necessary tools to be successful with our robot. So a big part of my role was building out a training curriculum consisting of an online video library as well as structuring in person hands on training. For distributors, it was also about making sure they had the right marketing materials and support to actually sell the robot, and for integrators and OEMs it was more about the technical training to make sure they could successfully implement the robot in their projects.
           </p>
           <p class="exp-feature-body">
-            Over time I also got more data-driven about which partners and channels were actually working, and shifted more energy toward those. I also built a small intern team and brought in AI tools — Make and n8n for automation, and LLMs like Claude and Gemini for lead research and content — which let a small team do a lot more than it otherwise could.
+            With my background in machine learning and the rapid rise of AI tools, I saw a clear opportunity to improve how we approached outreach. I put together a small team of interns and started experimenting with different tools to find practical ways to make both our marketing and internal processes more efficient. We used platforms like Make and n8n to automate tasks such as lead generation and follow-ups, and leveraged Claude and Gemini for lead research and content creation. As we iterated, this gradually shifted our approach away from manual, one-off efforts toward something much more streamlined and scalable. Along the way, we also built out a few internal tools for things like inventory tracking and document generation, which helped improve efficiency on the operations side as well. Overall, it became less about using AI for its own sake and more about building simple, reliable systems that saved time and allowed us to focus on higher-value work.
           </p>
         </div>
+      </div>
+
+      <div style="margin-top:2rem;">
+        <div style="border-radius:var(--radius-sm); overflow:hidden; border:1px solid var(--border);">
+          <img src="Images/AUBO/MakePipelineforOutreach.png" alt="Outreach automation pipeline built in Make" style="width:100%; height:auto; display:block;" />
+        </div>
+        <p style="font-size:0.75rem; color:var(--text-muted); text-align:center; margin-top:0.5rem;">Outreach automation pipeline built in Make</p>
       </div>
     </div>
   </section>
