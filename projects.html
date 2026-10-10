@@ -81,6 +81,11 @@
             </div>
             <p class="project-img-caption">Default power distribution (left) vs. the new linear power distribution (right)</p>
             <p>I rewrote the power distribution so each motor's roll contribution scales linearly with its distance from the truss center (±0.73, ±1.25), with the left drone pushing up and the right drone pushing down. With this change alone, the system was able to take off without any PID changes.</p>
+            <div class="video-grid">
+              <img src="Images/Dual Drone Control/take off before PWD Changes.gif" alt="Take-off attempt with default power distribution" class="project-img" style="margin:0;" />
+              <img src="Images/Dual Drone Control/take off after PWD Changes.gif" alt="Take-off with linear power distribution" class="project-img" style="margin:0;" />
+            </div>
+            <p class="project-img-caption">Take-off with default power distribution (left) vs. linear power distribution (right)</p>
           </div>
 
           <div class="project-section">
@@ -91,6 +96,11 @@
               <img src="Images/Dual Drone Control/yaw_firmware changeDrone Position.png" alt="Drone positions during yaw after the fix" class="project-img" style="margin:0;" />
             </div>
             <p class="project-img-caption">Drone positions during yaw: default firmware (left) vs. adjusted setpoints (right)</p>
+            <div class="video-grid">
+              <video src="Images/Dual Drone Control/yaw_before_web.mp4" class="project-img" style="margin:0;" autoplay muted loop playsinline></video>
+              <video src="Images/Dual Drone Control/yaw_after_web.mp4" class="project-img" style="margin:0;" autoplay muted loop playsinline></video>
+            </div>
+            <p class="project-img-caption">Yaw with default firmware (left) vs. adjusted setpoints (right)</p>
           </div>
 
           <div class="project-section">
@@ -101,6 +111,9 @@
               <img src="Images/Dual Drone Control/left_right (Kp_600 Kd_6_no mass)Average.png" alt="Left-right flight test with tuned PID" class="project-img" style="margin:0;" />
             </div>
             <p class="project-img-caption">Left-right flight with default PID, 8.5% error (left) vs. tuned PID, 6.4% error (right)</p>
+            <p>With an ~8 g payload attached, the no-mass gains left a 7.4% error. Retuning to Kp = 800, Kd = 8 reduced it to 5.8%.</p>
+            <img src="Images/Dual Drone Control/Before and after roll tuning (with 8g mass).png" alt="Left-right flight test with 8 g payload before and after tuning" class="project-img" />
+            <p class="project-img-caption">Left-right flight with ~8 g payload: no-mass PID, 7.4% error (left) vs. retuned PID, 5.8% error (right)</p>
           </div>
 
           <div class="project-section">
@@ -108,7 +121,11 @@
             <p>Heavier payloads need more thrust to hover, so the hover PWM can be used to estimate payload mass. Hover PWM was ~49,500 without a payload and ~52,000 with an 8 g payload. After picking up an unknown number of paper clips, the system measures its hover PWM and linearly interpolates between the two tuned PID sets (Kp = 600, Kd = 6 → Kp = 800, Kd = 8) before continuing to the drop-off point.</p>
           </div>
 
-          <!-- Demo GIFs go here -->
+          <div class="project-section">
+            <div class="project-section-title">Final Flight</div>
+            <video src="Images/Dual Drone Control/final_flight_web.mp4" class="project-img" autoplay muted loop playsinline></video>
+            <p class="project-img-caption">Take off, payload pickup, and left-right flight with the swinging payload</p>
+          </div>
 
           <div class="project-section">
             <div class="project-section-title">Results</div>
