@@ -18,7 +18,7 @@
     <li><a href="index.html">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="experience.html">Experience</a></li>
-    <li><a href="Shang (Steven) Shi Resume 2025 - Technical.pdf" target="_blank" class="nav-resume-btn">Resume ↓</a></li>
+    <li><a href="Resume_Steven_Shang_Shi_2026.pdf" target="_blank" class="nav-resume-btn">Resume ↓</a></li>
     <li><a href="chat.html">Chat</a></li>
   </ul>
 </nav>
@@ -31,6 +31,97 @@
   </div>
 
   <div class="projects-grid">
+
+    <!-- ── Project: Dual Drone Control ── -->
+    <div class="project-card">
+      <div class="project-card-header">
+        <div class="project-card-left">
+          <div class="project-card-title">Control Stabilization for Bi-Quadcopter Payload Delivery</div>
+          <div class="project-card-summary">Two Crazyflie drones joined by a 3D-printed truss, achieving 43% more payload capacity and 26% lower trajectory error than a single drone.</div>
+          <div class="project-tags">
+            <span class="project-tag">C</span>
+            <span class="project-tag">Python</span>
+            <span class="project-tag">MATLAB / Simulink</span>
+            <span class="project-tag">Cascaded PID</span>
+            <span class="project-tag">Crazyflie</span>
+          </div>
+        </div>
+        <div class="project-toggle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-body-inner">
+
+          <div class="project-section">
+            <div class="project-section-title">Background</div>
+            <p>Drone delivery is held back by limited payload capacity. For our Advanced Control Systems Integration course at Carnegie Mellon, our team of 5 investigated whether rigidly linking two quadcopters could increase payload capacity without sacrificing flight stability. Two Crazyflie drones were joined by a 3D-printed truss with a magnet at its center to pick up a payload of paper clips. I led the controls, firmware and swarm work: modifying the Crazyflie firmware in C to redistribute motor power and correct yaw behaviour, developing the Python swarm control API used to command both drones simultaneously, tuning the PID controllers on hardware, and building the adaptive payload controller.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">System Design</div>
+            <img src="Images/Dual Drone Control/Dual_CF_wTruss.png" alt="SolidWorks assembly of two Crazyflie drones joined by a truss" class="project-img" />
+            <p class="project-img-caption">SolidWorks assembly of the dual-drone system</p>
+            <p>The PLA truss went through several iterations to balance length, weight and stiffness. Its cross shape leaves the Flowdeck sensors on the underside unobstructed, and the payload hangs at the center so the load is shared evenly between both drones. Since the Crazyflies have very limited thrust, keeping the truss light (~8 g) mattered more than its strength.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Modelling &amp; Simulation</div>
+            <img src="Images/Dual Drone Control/Force_Distribution.png" alt="Motor force and torque layout of the dual-drone system" class="project-img" />
+            <p class="project-img-caption">Rotor forces and torques of the combined 8-motor system</p>
+            <p>Teammates derived the system dynamics using Euler angles and Lagrangian mechanics, linearized them about hover, and built a state-space model in MATLAB. This plant was placed inside a Simulink replica of the Crazyflie's onboard cascaded PID controller (velocity → attitude → attitude rate). Comparing moments of inertia before and after joining the drones showed roll inertia increased ~112× while available roll torque only increased ~5×, so roll and yaw were expected to be the hardest axes to control.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Firmware Modification: Roll</div>
+            <p>The default Crazyflie power distribution splits each drone's motors into a "high" and "low" side for roll. Once two drones are joined, the torques from each drone largely cancel out about the center of the truss, and the system was unable to take off.</p>
+            <div class="video-grid">
+              <img src="Images/Dual Drone Control/defaultPWD.png" alt="Default roll power distribution" class="project-img" style="margin:0;" />
+              <img src="Images/Dual Drone Control/linearPWD.png" alt="Linear roll power distribution" class="project-img" style="margin:0;" />
+            </div>
+            <p class="project-img-caption">Default power distribution (left) vs. the new linear power distribution (right)</p>
+            <p>I rewrote the power distribution so each motor's roll contribution scales linearly with its distance from the truss center (±0.73, ±1.25), with the left drone pushing up and the right drone pushing down. With this change alone, the system was able to take off without any PID changes.</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Firmware Modification: Yaw</div>
+            <p>A single drone yaws in place, but when the joined system turns about its center, each drone actually needs a forward velocity. Without accounting for this, both drones fought to yaw in place and one overpowered the other, leaving one drone nearly stationary while the other circled around it. To fix this, I added a velocity offset proportional to the yaw rate and the truss half-length (<em>v<sub>x</sub> ∓ ω·L</em>) to each drone's setpoint, which made the system rotate about its true center.</p>
+            <div class="video-grid">
+              <img src="Images/Dual Drone Control/yaw_noChange.png" alt="Drone positions during yaw before the fix" class="project-img" style="margin:0;" />
+              <img src="Images/Dual Drone Control/yaw_firmware changeDrone Position.png" alt="Drone positions during yaw after the fix" class="project-img" style="margin:0;" />
+            </div>
+            <p class="project-img-caption">Drone positions during yaw: default firmware (left) vs. adjusted setpoints (right)</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">PID Tuning</div>
+            <p>Sideways translation (roll) remained the least stable maneuver, so tuning focused on the roll attitude rate controller in four stages: using the inertia ratios to estimate which way the gains should move, tuning in Simulink, then refining on hardware and finally tuning with an ~8 g payload attached. I carried out the hardware and payload tuning, starting from the simulated gains. Roll gains went from the default Kp = 250, Kd = 2.5 to Kp = 600, Kd = 6. Adding a short pause between direction changes further reduced oscillations. The test was a 2 m left-right flight at 0.3 m/s.</p>
+            <div class="video-grid">
+              <img src="Images/Dual Drone Control/left_right (baseline no mass)Average.png" alt="Left-right flight test with default PID" class="project-img" style="margin:0;" />
+              <img src="Images/Dual Drone Control/left_right (Kp_600 Kd_6_no mass)Average.png" alt="Left-right flight test with tuned PID" class="project-img" style="margin:0;" />
+            </div>
+            <p class="project-img-caption">Left-right flight with default PID, 8.5% error (left) vs. tuned PID, 6.4% error (right)</p>
+          </div>
+
+          <div class="project-section">
+            <div class="project-section-title">Adaptive Payload Control</div>
+            <p>Heavier payloads need more thrust to hover, so the hover PWM can be used to estimate payload mass. Hover PWM was ~49,500 without a payload and ~52,000 with an 8 g payload. After picking up an unknown number of paper clips, the system measures its hover PWM and linearly interpolates between the two tuned PID sets (Kp = 600, Kd = 6 → Kp = 800, Kd = 8) before continuing to the drop-off point.</p>
+          </div>
+
+          <!-- Demo GIFs go here -->
+
+          <div class="project-section">
+            <div class="project-section-title">Results</div>
+            <ul>
+              <li><strong>Payload capacity:</strong> 7 g (single drone) → 10 g (dual drone), a ~43% increase on top of the 8 g truss.</li>
+              <li><strong>Left-right trajectory error:</strong> 7.8% (single drone) → 5.8% (tuned dual drone with payload), a ~26% decrease.</li>
+              <li>The system completed the full mission: take off, fly to the pickup site, pick up the payload, adapt its PID gains, and fly stably with the swinging payload.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
 
     <!-- ── Project 1: Hand Gesture ── -->
     <div class="project-card">
