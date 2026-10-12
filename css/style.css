@@ -724,3 +724,171 @@ footer {
   .events-layout { grid-template-columns: 1fr; gap: 2rem; }
   .exp-app-photo-grid { grid-template-columns: 1fr; }
 }
+
+/* ─── Robot Power Cable (home page) ─────────────────────────── */
+.has-cable { position: relative; }
+#cable {
+  position: absolute; top: 0; left: 0; width: 100%;
+  pointer-events: none; z-index: 1; overflow: visible;
+}
+/* Content sits above the cable; section backgrounds sit below it */
+.has-cable main .section,
+.has-cable .hero-split-photo img,
+.has-cable .hero-split-content > * { position: relative; z-index: 2; }
+.has-cable footer { position: relative; z-index: 3; }
+
+.cable-shadow { stroke: #1A1628; stroke-opacity: 0.12; stroke-width: 8; }
+.cable-main   { stroke: #3A3354; stroke-width: 6; }
+.cable-shine  { stroke: rgba(255,255,255,0.28); stroke-width: 1.6; }
+#cable path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.cable-flow {
+  stroke: #A8E4FF; stroke-width: 2.4; stroke-dasharray: 2 22;
+  opacity: 0; transition: opacity 0.6s ease;
+  animation: cable-flow 0.9s linear infinite;
+}
+.powered-page .cable-flow { opacity: 0.95; }
+@keyframes cable-flow { to { stroke-dashoffset: 24; } }
+.cable-surge { stroke: #E9FAFF; stroke-width: 7; opacity: 0; }
+
+/* Robot */
+.robot-stage { width: 240px; max-width: 100%; margin-top: 1.75rem; }
+.robot { display: block; width: 100%; height: auto; overflow: visible; }
+.robot .r-skull, .robot .r-torso, .robot .r-limb, .robot .r-foot, .robot .r-hand {
+  fill: var(--white); stroke: #3A3354; stroke-width: 2.4;
+}
+.robot .r-neck { fill: #3A3354; }
+.robot .r-visor { fill: #2B2640; }
+.robot .r-vent { fill: var(--lavender); }
+.robot .r-port { fill: #3A3354; }
+.robot .r-antenna-stem { stroke: #3A3354; stroke-width: 2.4; stroke-linecap: round; }
+.robot .r-eye, .robot .r-core, .robot .r-antenna { fill: #5A5278; transition: fill 0.4s ease; }
+.robot .r-shadow {
+  fill: #1A1628; opacity: 0.1;
+  transform-box: fill-box; transform-origin: center;
+  transform: translateX(-58px) scaleX(1.85);
+  transition: transform 1s cubic-bezier(.34, 1.3, .64, 1);
+}
+.robot .r-pose {
+  transform-box: view-box; transform-origin: 120px 121px;
+  transform: translateY(-33px) rotate(-90deg);
+  transition: transform 1s cubic-bezier(.34, 1.3, .64, 1);
+}
+.robot .r-battery rect { fill: none; stroke: #E07A86; stroke-width: 1.6; }
+.robot .r-battery .r-battery-nub, .robot .r-battery .r-battery-bar { fill: #E07A86; stroke: none; }
+.robot .r-battery { animation: low-batt 1.2s steps(1) infinite; transition: opacity 0.3s; }
+@keyframes low-batt { 50% { opacity: 0.15; } }
+.robot .r-notes { opacity: 0; }
+.robot .r-note { font-size: 15px; fill: var(--lavender-deep); }
+
+.robot.powered .r-eye     { fill: #8FE3FF; filter: url(#r-glow); }
+.robot.powered .r-core    { fill: #A8D4F0; filter: url(#r-glow); }
+.robot.powered .r-antenna { fill: #C9B8E8; filter: url(#r-glow); }
+.robot.powered .r-battery { animation: none; opacity: 0; }
+.robot.awake .r-pose   { transform: none; }
+.robot.awake .r-shadow { transform: none; }
+
+.robot .r-dance, .robot .r-head, .robot .r-arm, .robot .r-leg { transform-box: fill-box; }
+.robot .r-dance { transform-box: view-box; transform-origin: 120px 121px; }
+.robot .r-head  { transform-origin: 50% 100%; }
+.robot .r-arm   { transform-origin: 50% 8%; }
+.robot .r-leg   { transform-origin: 50% 0%; }
+.robot.dancing .r-dance { animation: r-bob 0.6s ease-in-out infinite alternate; }
+.robot.dancing .r-head  { animation: r-tilt 0.6s ease-in-out infinite alternate; }
+.robot.dancing .r-arm-l { animation: r-arm-l 1.2s ease-in-out infinite; }
+.robot.dancing .r-arm-r { animation: r-arm-r 1.2s ease-in-out infinite; }
+.robot.dancing .r-leg-l { animation: r-step 1.2s ease-in-out infinite; }
+.robot.dancing .r-leg-r { animation: r-step 1.2s ease-in-out infinite -0.6s; }
+.robot.dancing .r-core  { animation: r-pulse 0.6s ease-in-out infinite alternate; }
+.robot.dancing .r-notes { opacity: 1; }
+.robot.dancing .r-note  { animation: r-note 2.4s ease-out infinite; }
+.robot.dancing .r-note:nth-child(2) { animation-delay: -0.8s; }
+.robot.dancing .r-note:nth-child(3) { animation-delay: -1.6s; }
+@keyframes r-bob   { from { transform: translateY(0) rotate(-4deg); } to { transform: translateY(-6px) rotate(4deg); } }
+@keyframes r-tilt  { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+@keyframes r-arm-l { 0%, 100% { transform: rotate(25deg); } 50% { transform: rotate(155deg); } }
+@keyframes r-arm-r { 0%, 100% { transform: rotate(-155deg); } 50% { transform: rotate(-25deg); } }
+@keyframes r-step  { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-5px) rotate(10deg); } }
+@keyframes r-pulse { from { opacity: 0.65; } to { opacity: 1; } }
+@keyframes r-note  {
+  0%   { opacity: 0; transform: translateY(8px); }
+  20%  { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-22px); }
+}
+.robot .r-note { transform-box: fill-box; }
+
+/* Dancing robot shuffles left and right across the hero */
+.robot.dancing .r-walk { animation: r-walk 7s ease-in-out infinite; }
+@keyframes r-walk {
+  0%, 100% { transform: translateX(0); }
+  25%      { transform: translateX(-85px); }
+  50%      { transform: translateX(10px); }
+  75%      { transform: translateX(150px); }
+}
+
+/* Speech bubble while asleep */
+.robot-stage { position: relative; }
+.robot-bubble {
+  position: absolute; left: 136px; top: 4px;
+  width: max-content; max-width: 190px;
+  padding: 0.55rem 0.85rem;
+  background: var(--white);
+  border: 1px solid var(--border); border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  font-size: 0.78rem; font-weight: 500; line-height: 1.35;
+  color: var(--text-secondary);
+  animation: bubble-float 2.6s ease-in-out infinite;
+  transition: opacity 0.5s ease;
+}
+.robot-bubble::before {
+  content: ''; position: absolute; left: -6px; bottom: 14px;
+  width: 10px; height: 10px; background: var(--white);
+  border-left: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  transform: rotate(45deg);
+}
+.robot-bubble-arrow {
+  display: inline-block; color: var(--lavender-deep); font-weight: 600;
+  animation: bubble-arrow 1.2s ease-in-out infinite;
+}
+.robot-bubble.gone { opacity: 0; }
+@keyframes bubble-float { 50% { transform: translateY(-4px); } }
+@keyframes bubble-arrow { 50% { transform: translateY(3px); } }
+
+/* Socket */
+.socket-row { display: flex; justify-content: flex-end; margin-top: 3rem; }
+.socket-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
+.socket { width: 84px; height: 64px; overflow: visible; }
+.socket-body { fill: var(--white); stroke: #3A3354; stroke-width: 2.2; }
+.socket-base { fill: var(--lavender); }
+.socket-slot { fill: #2B2640; }
+.socket-bolt { fill: var(--lavender-light); stroke: var(--lavender-deep); stroke-width: 1.4; stroke-linejoin: round; transition: fill 0.4s, stroke 0.4s; }
+.socket-led  { fill: #E07A86; animation: low-batt 1.2s steps(1) infinite; }
+.socket-spark line { stroke: #85C3E8; stroke-width: 2; stroke-linecap: round; opacity: 0; }
+.powered-page .socket-led  { fill: #6BD49A; animation: none; }
+.powered-page .socket-bolt { fill: #FFE68A; stroke: #E8B931; }
+.powered-page .socket-spark line { animation: spark 0.6s ease-out 1; }
+@keyframes spark {
+  0%   { opacity: 1; stroke-dasharray: 0 20; }
+  40%  { opacity: 1; stroke-dasharray: 12 20; }
+  100% { opacity: 0; stroke-dasharray: 12 20; stroke-dashoffset: -12; }
+}
+.socket-label {
+  font: 500 0.78rem 'DM Sans', sans-serif; letter-spacing: 0.02em;
+  color: var(--text-muted); background: none; border: 1.5px dashed var(--border);
+  padding: 0.35rem 0.9rem; border-radius: var(--radius-pill);
+  transition: color 0.3s, background 0.3s, border-color 0.3s, transform 0.2s;
+}
+.socket-label:not(:disabled) {
+  cursor: pointer; color: white; border: 1.5px solid transparent;
+  background: var(--gradient-vivid);
+  box-shadow: 0 4px 20px rgba(180, 160, 220, 0.4);
+}
+.socket-label:not(:disabled):hover { transform: translateY(-2px); }
+
+@media (max-width: 768px) {
+  .robot-stage { width: 200px; }
+  .robot-bubble { left: 112px; max-width: 140px; font-size: 0.72rem; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .robot *, .socket *, .cable-flow, .robot-bubble, .robot-bubble * { animation: none !important; }
+  .robot .r-pose, .robot .r-shadow { transition: none; }
+}
